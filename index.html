@@ -1,32 +1,53 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10131b">
-<meta name="description" content="KNOTSPACEのゲームプロジェクト">
-<title>Games</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10131c"><meta name="description" content="小さな会社を設立し、経営判断で成長させる企業経営シミュレーション。">
+<meta property="og:title" content="企業戦略"><meta property="og:description" content="その経営判断が、会社の未来を変える。">
+<title>企業戦略</title>
 <style>
-:root{color-scheme:dark;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#10131b;color:#f5f6fa}
-*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:28px;background:radial-gradient(ellipse at 50% 0,#202a40 0,transparent 55%),#10131b}
-main{width:min(760px,100%)}h1{font-size:clamp(2rem,7vw,3.4rem);letter-spacing:.04em;margin:0 0 10px}p{color:#aeb8ca;line-height:1.8;margin:0 0 30px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-a{display:block;padding:25px;border:1px solid #354158;border-radius:20px;background:#1a2231;color:inherit;text-decoration:none;transition:transform .18s,border-color .18s}
-a:hover,a:focus-visible{transform:translateY(-3px);border-color:#8aa8df;outline:none}
-strong{display:block;font-size:1.35rem;margin-bottom:8px}small{color:#aeb8ca;font-size:.92rem}
-footer{margin-top:34px;color:#69758a;font-size:.8rem}
-</style>
-</head>
-<body>
-<main>
-<h1>Games</h1>
-<p>ゲームプロジェクトを選択してください。</p>
-<section class="cards" aria-label="ゲーム一覧">
-<a href="./青の分岐点/"><strong>青の分岐点</strong><small>人生シミュレーション</small></a>
-<a href="./honke-game/"><strong>受験戦争</strong><small>受験シミュレーション</small></a>
-<a href="./business-sim/"><strong>企業戦略</strong><small>会社経営シミュレーション</small></a>
-</section>
-<footer>KNOTSPACE · Game Projects</footer>
-</main>
-</body>
-</html>
+
+:root{color-scheme:dark;--bg:#0b0e15;--panel:#141a26;--panel2:#1b2433;--line:#293448;--text:#eef2fa;--muted:#9ba8bc;--blue:#78a9ff;--gold:#f2c879;--red:#ff8585;--green:#83d6b0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#24334e 0,transparent 55%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer;color:inherit}.wrap{max-width:920px;margin:auto;padding:24px 18px 60px}.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:4px 0 18px}.brand{font-weight:900;letter-spacing:.12em}.brand span{color:var(--blue)}.tag{font-size:11px;color:var(--muted);letter-spacing:.15em}
+h1{font-size:clamp(34px,8vw,64px);line-height:1.12;letter-spacing:.08em;margin:20px 0 12px}.sub{color:var(--muted);line-height:1.9}.panel{background:linear-gradient(145deg,var(--panel),#101621);border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 0;box-shadow:0 16px 50px #0003}.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--blue);font-weight:800}.btn{border:1px solid #49638b;background:#213653;padding:13px 20px;border-radius:12px;font-weight:800;transition:.15s}.btn:hover{filter:brightness(1.2);transform:translateY(-1px)}.btn.primary{background:linear-gradient(110deg,#3869ad,#294a7a);width:100%;font-size:16px;padding:16px}.btn.ghost{background:#161e2c;border-color:var(--line)}.choices{display:grid;gap:10px;margin-top:16px}.choice{text-align:left;padding:15px 16px;background:var(--panel2);border:1px solid var(--line);border-radius:13px}.choice:hover{border-color:var(--blue);background:#202f45}.choice b{display:block;margin-bottom:5px}.choice small{color:var(--muted);line-height:1.6}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:#0d1420;border:1px solid var(--line);border-radius:12px;padding:12px}.stat small{display:block;color:var(--muted);font-size:11px}.stat strong{font-size:23px}.bar{height:6px;background:#293448;border-radius:9px;margin-top:8px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#578bda,#9ac4ff)}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.badge{font-size:11px;border:1px solid var(--line);padding:5px 9px;border-radius:99px;color:var(--muted)}.log{border-left:2px solid #385b88;padding:2px 0 2px 14px;margin:12px 0;color:#c8d3e3;line-height:1.7}.hidden{display:none!important}.birth{max-width:620px;margin:38px auto;text-align:center}.certificate{border:1px solid #8d9bb1;background:#e9e8df;color:#18202c;border-radius:4px;padding:24px;box-shadow:0 18px 55px #0008;text-align:left}.certificate h2{text-align:center;letter-spacing:.3em;border-bottom:1px solid #9da4ad;padding-bottom:16px}.certificate p{border-bottom:1px solid #c1c5c9;padding:8px 0;margin:0}.certificate strong{float:right}.footer{text-align:center;color:#65738a;font-size:11px;margin-top:40px}
+@media(max-width:560px){.wrap{padding:16px 13px 42px}.panel{padding:16px}.stats{grid-template-columns:repeat(2,1fr)}.top{padding-bottom:13px}.tag{font-size:9px}}
+
+:root{--blue:#79c6ad}
+.certificate h2{letter-spacing:.18em}.stat strong{font-variant-numeric:tabular-nums}
+</style></head>
+<body><main class="wrap">
+<header class="top"><div class="brand">KNOT<span> / </span>企業戦略</div><div class="tag">BUILD YOUR COMPANY</div></header>
+<section id="title">
+<div class="eyebrow" style="margin-top:46px">BUSINESS LIFE SIMULATOR</div><h1>企業戦略</h1><p class="sub">資金も、人材も、ブランドも。<br>あなたの経営判断が、小さな会社の未来をつくる。</p>
+<div class="panel"><div class="row"><span class="eyebrow">GAME START</span><span class="badge">β VERSION 0.2</span></div><p>創業からスタート。商品開発・採用・投資・資金繰りを通じて、会社を成長させよう。</p><button class="btn primary" onclick="start()">会社を設立する</button></div>
+<div class="sub" style="font-size:12px">※ 企業・市場・金額はゲーム用の架空設定です。</div></section>
+<section id="birth" class="birth hidden"><div class="eyebrow">FOUNDATION RECORD</div><h1 style="font-size:38px">創業証明書</h1><p class="sub">会社が誕生した。経営方針を確認しよう。</p><div class="certificate" id="cert"></div><button class="btn primary" style="margin-top:18px" onclick="reveal()">経営を開始する</button></section>
+<section id="game" class="hidden">
+<div class="row" style="margin:22px 0 12px"><div><div class="eyebrow">COMPANY STATUS</div><h2 id="player" style="margin:4px 0">---</h2></div><span class="badge" id="phase">創業期</span></div>
+<div class="stats" id="stats"></div><div class="panel"><div class="row"><div><div class="eyebrow">CURRENT BUSINESS</div><h2 id="eventTitle" style="margin:7px 0">---</h2></div><span class="badge" id="age">創業1年目</span></div><p id="eventText" class="sub"></p><div class="choices" id="choices"></div></div>
+<div class="panel"><div class="eyebrow">BUSINESS LOG</div><div id="logs"></div></div>
+<div class="row"><button class="btn ghost" onclick="save()">セーブ</button><button class="btn ghost" onclick="location.reload()">タイトルへ</button></div>
+</section><div class="footer">企業戦略 — A KNOT GAME PROJECT</div></main>
+<script>
+const $=id=>document.getElementById(id);let p=null,log=[];
+const names=["青空テクノロジー","ノースフィールド","ミライ製作所","KNOTソリューションズ","オービット・ラボ","さくらフーズ","ネクストリンク"];
+const sectors=[{name:"IT・テクノロジー",cash:1200,quality:42,brand:18,capacity:30,staff:5,productivity:55,base:300},{name:"食品・小売",cash:1000,quality:48,brand:25,capacity:48,staff:7,productivity:48,base:330},{name:"製造・メーカー",cash:1600,quality:45,brand:12,capacity:62,staff:8,productivity:46,base:380},{name:"サービス",cash:900,quality:38,brand:28,capacity:32,staff:6,productivity:62,base:280}];
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}function n(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+function start(){let d=rnd(sectors);p={name:rnd(names),sector:d.name,cash:d.cash,quality:d.quality,brand:d.brand,capacity:d.capacity,staff:d.staff,productivity:d.productivity,base:d.base,year:1,debt:0,revenue:0,profit:0,value:d.cash,actions:0,history:[]};$("title").classList.add("hidden");$("birth").classList.remove("hidden");$("cert").innerHTML='<h2>創業証明書</h2><p>会社名 <strong>'+p.name+'</strong></p><p>事業分野 <strong>'+p.sector+'</strong></p><p>創業資金 <strong>'+p.cash+'万円</strong></p><p>初期従業員 <strong>'+p.staff+'人</strong></p><p>商品力 <strong>'+p.quality+'</strong></p><p>ブランド力 <strong>'+p.brand+'</strong></p><p style="text-align:center;border:0;margin-top:18px">この会社の未来は、あなたの経営判断で変わる。</p>'}
+function reveal(){$("birth").classList.add("hidden");$("game").classList.remove("hidden");add("創業。"+p.sector+"の会社を設立した。");next()}
+function add(t){log.unshift(t);$("logs").innerHTML=log.slice(0,10).map(x=>'<div class="log">'+x+'</div>').join("")}
+function update(){$("player").textContent=p.name;$("age").textContent="創業"+p.year+"年目";$("phase").textContent=p.year<3?"創業期":p.year<7?"成長期":p.year<15?"拡大期":"成熟期";$("stats").innerHTML=[["現金",p.cash+"万円"],["年間売上",p.revenue+"万円"],["企業価値",p.value+"万円"],["従業員",p.staff+"人"],["商品力",p.quality],["ブランド",p.brand],["生産能力",p.capacity],["借入金",p.debt+"万円"]].map(([k,v])=>'<div class="stat"><small>'+k+'</small><strong>'+v+'</strong></div>').join("")}
+function next(){update();let e;
+if(p.year===1)e={t:"創業直後の経営方針",d:"限られた資金をどう使うか。最初の投資が会社の方向性を決める。",c:[["商品開発に投資","商品力を高め、顧客満足を狙う",()=>{spend(180);p.quality+=12}],["広告を打つ","知名度を高めて顧客を獲得する",()=>{spend(130);p.brand+=14}],["設備を整える","生産能力を優先して強化する",()=>{spend(220);p.capacity+=15}]]};
+else if(p.year<4)e={t:"事業の基盤づくり",d:"会社が少しずつ知られ始めた。次の成長に向けて何を優先する？",c:[["新しい人材を採用","従業員を増やし、事業規模を広げる",()=>{spend(160);p.staff+=3;p.productivity+=2}],["社員を育成する","研修で生産性を上げる",()=>{spend(90);p.productivity+=12}],["研究開発を進める","将来の商品力と成長性を高める",()=>{spend(180);p.quality+=8;p.base+=25}]]};
+else if(p.year<8)e={t:"競争の激化",d:"同業他社が市場に参入。会社の強みを明確にする必要がある。",c:[["品質で勝負する","商品力を大きく伸ばす",()=>{spend(220);p.quality+=15}],["ブランド戦略を強化","広告・広報で知名度を上げる",()=>{spend(190);p.brand+=16}],["生産体制を拡大","設備投資で供給力を高める",()=>{spend(260);p.capacity+=18}]]};
+else if(p.year<15)e={t:"事業拡大の決断",d:"会社は成長段階に入った。新規事業や拠点拡大に挑戦できる。",c:[["新規事業に参入","成功すれば売上基盤が広がる",()=>{spend(350);p.base+=100;p.quality+=5}],["支店・工場を増設","生産能力と売上規模を拡大",()=>{spend(400);p.capacity+=22;p.staff+=5}],["財務を健全化","投資を抑えて借入金を返済",()=>{let v=Math.min(p.debt,p.cash,300);p.debt-=v;p.cash-=v;add(v+"万円を返済した。")}]]};
+else e={t:"成熟企業の経営",d:"業界で確かな地位を築いた。次の時代に向けて会社の未来を選ぼう。",c:[["海外・全国展開","大きな投資で市場を広げる",()=>{spend(600);p.base+=180;p.brand+=8}],["技術革新に挑戦","研究開発で競争力を維持する",()=>{spend(350);p.quality+=18;p.productivity+=8}],["安定経営を優先","無理な拡大を避け、利益を守る",()=>{p.cash+=100;p.debt=Math.max(0,p.debt-100)}]]};
+$("eventTitle").textContent=e.t;$("eventText").textContent=e.d;$("choices").innerHTML="";e.c.forEach(([a,b,fn])=>{let bt=document.createElement("button");bt.className="choice";bt.innerHTML="<b>"+a+"</b><small>"+b+"</small>";bt.onclick=()=>{fn();clamp();settle();p.year++;add("第"+(p.year-1)+"期："+a+"。");next()};$("choices").append(bt)})}
+function spend(v){if(p.cash>=v)p.cash-=v;else{add("資金不足。投資規模を縮小した。");p.cash=0}}
+function settle(){let demand=p.base*Math.pow(1.075,p.year-1);let sales=Math.round(demand*(.55+p.capacity/100*.55)*(.65+p.quality/100*.5)*(.7+p.brand/100*.4));let costs=p.staff*34+95+p.capacity*1.8+p.debt*.035;let profit=Math.round(sales-costs);p.revenue=sales;p.profit=profit;p.cash+=profit;p.value=Math.max(0,Math.round(p.cash+p.quality*8+p.brand*6+p.capacity*7-p.debt));add("売上 "+sales+"万円 ／ 経費 "+Math.round(costs)+"万円 ／ "+(profit>=0?"利益 ":"損失 ")+profit+"万円");if(p.cash<0){add("資金繰りが破綻。会社は倒産した。");$("eventTitle").textContent="会社の倒産";$("eventText").textContent=p.name+"は"+p.year+"期で倒産。最終企業価値："+p.value+"万円";$("choices").innerHTML="";return}}
+function clamp(){["quality","brand","capacity","productivity"].forEach(k=>p[k]=Math.max(0,Math.min(100,p[k])));p.staff=Math.max(1,p.staff)}
+function save(){try{localStorage.setItem("knot_business_sim",JSON.stringify({p,log}));add("セーブしました。")}catch(e){add("セーブに失敗しました。")}}
+try{let d=JSON.parse(localStorage.getItem("knot_business_sim")||"null");if(d&&d.p&&d.p.name){p=d.p;log=d.log||[];$("title").classList.add("hidden");$("game").classList.remove("hidden");$("logs").innerHTML=log.slice(0,10).map(x=>'<div class="log">'+x+'</div>').join("");next()}}catch(e){}
+</script></body></html>
