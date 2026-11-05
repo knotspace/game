@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10131c"><meta name="description" content="生まれた環境、才能、努力、選択。受験を軸に人生を切り拓くシミュレーションゲーム。">
+<meta property="og:title" content="受験戦争"><meta property="og:description" content="その選択が、未来を変える。">
+<title>受験戦争</title><link rel="manifest" href="manifest.json">
+<style>
+:root{color-scheme:dark;--bg:#0b0e15;--panel:#141a26;--panel2:#1b2433;--line:#293448;--text:#eef2fa;--muted:#9ba8bc;--blue:#78a9ff;--gold:#f2c879;--red:#ff8585;--green:#83d6b0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#24334e 0,transparent 55%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer;color:inherit}.wrap{max-width:920px;margin:auto;padding:24px 18px 60px}.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:4px 0 18px}.brand{font-weight:900;letter-spacing:.12em}.brand span{color:var(--blue)}.tag{font-size:11px;color:var(--muted);letter-spacing:.15em}
+h1{font-size:clamp(34px,8vw,64px);line-height:1.12;letter-spacing:.08em;margin:20px 0 12px}.sub{color:var(--muted);line-height:1.9}.panel{background:linear-gradient(145deg,var(--panel),#101621);border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 0;box-shadow:0 16px 50px #0003}.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--blue);font-weight:800}.btn{border:1px solid #49638b;background:#213653;padding:13px 20px;border-radius:12px;font-weight:800;transition:.15s}.btn:hover{filter:brightness(1.2);transform:translateY(-1px)}.btn.primary{background:linear-gradient(110deg,#3869ad,#294a7a);width:100%;font-size:16px;padding:16px}.btn.ghost{background:#161e2c;border-color:var(--line)}.choices{display:grid;gap:10px;margin-top:16px}.choice{text-align:left;padding:15px 16px;background:var(--panel2);border:1px solid var(--line);border-radius:13px}.choice:hover{border-color:var(--blue);background:#202f45}.choice b{display:block;margin-bottom:5px}.choice small{color:var(--muted);line-height:1.6}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:#0d1420;border:1px solid var(--line);border-radius:12px;padding:12px}.stat small{display:block;color:var(--muted);font-size:11px}.stat strong{font-size:23px}.bar{height:6px;background:#293448;border-radius:9px;margin-top:8px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#578bda,#9ac4ff)}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.badge{font-size:11px;border:1px solid var(--line);padding:5px 9px;border-radius:99px;color:var(--muted)}.log{border-left:2px solid #385b88;padding:2px 0 2px 14px;margin:12px 0;color:#c8d3e3;line-height:1.7}.hidden{display:none!important}.birth{max-width:620px;margin:38px auto;text-align:center}.certificate{border:1px solid #8d9bb1;background:#e9e8df;color:#18202c;border-radius:4px;padding:24px;box-shadow:0 18px 55px #0008;text-align:left}.certificate h2{text-align:center;letter-spacing:.3em;border-bottom:1px solid #9da4ad;padding-bottom:16px}.certificate p{border-bottom:1px solid #c1c5c9;padding:8px 0;margin:0}.certificate strong{float:right}.footer{text-align:center;color:#65738a;font-size:11px;margin-top:40px}
+@media(max-width:560px){.wrap{padding:16px 13px 42px}.panel{padding:16px}.stats{grid-template-columns:repeat(2,1fr)}.top{padding-bottom:13px}.tag{font-size:9px}}
+</style></head><body><main class="wrap">
+<header class="top"><div class="brand">KNOT<span> / </span>受験戦争</div><div class="tag">YOUR CHOICE, YOUR FUTURE</div></header>
+<section id="title">
+<div class="eyebrow" style="margin-top:46px">EDUCATION LIFE SIMULATOR</div><h1>受験戦争</h1><p class="sub">生まれた環境も、持っている才能も、人それぞれ。<br>小さな選択と積み重ねが、やがて進路を決めていく。</p>
+<div class="panel"><div class="row"><span class="eyebrow">GAME START</span><span class="badge">β VERSION 0.1</span></div><p>0歳から人生をスタート。学力・体力・精神力・家庭環境をもとに、学校生活と受験を乗り越えよう。</p><button class="btn primary" onclick="start()">人生を始める</button></div>
+<div class="sub" style="font-size:12px">※ 登場する人物・学校・出来事はゲーム用の架空設定を含みます。</div></section>
+<section id="birth" class="birth hidden"><div class="eyebrow">BIRTH RECORD</div><h1 style="font-size:38px">出生証明書</h1><p class="sub">あなたの人生が始まった。情報を確認しよう。</p><div class="certificate" id="cert"></div><button class="btn primary" style="margin-top:18px" onclick="reveal()">人生を歩み始める</button></section>
+<section id="game" class="hidden">
+<div class="row" style="margin:22px 0 12px"><div><div class="eyebrow">YOUR STATUS</div><h2 id="player" style="margin:4px 0">---</h2></div><span class="badge" id="phase">幼少期</span></div>
+<div class="stats" id="stats"></div><div class="panel"><div class="row"><div><div class="eyebrow">CURRENT STORY</div><h2 id="eventTitle" style="margin:7px 0">---</h2></div><span class="badge" id="age">0歳</span></div><p id="eventText" class="sub"></p><div class="choices" id="choices"></div></div>
+<div class="panel"><div class="eyebrow">LIFE LOG</div><div id="logs"></div></div>
+<div class="row"><button class="btn ghost" onclick="save()">セーブ</button><button class="btn ghost" onclick="location.reload()">タイトルへ</button></div>
+</section><div class="footer">受験戦争 — A KNOT GAME PROJECT</div></main>
+<script>
+const $=id=>document.getElementById(id);let p=null,stage=0,log=[];
+const names=["朝倉 悠","三浦 湊","白石 凛","高瀬 葵","藤原 颯太","水野 結衣","小林 蓮","橘 さくら"];
+const schools=["市立第一中学校","青葉中学校","桜ヶ丘中学校","県立中央高校","東都進学校"];
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}function n(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+function start(){p={name:rnd(names),gender:rnd(["男子","女子"]),pref:rnd(["栃木県","東京都","埼玉県","神奈川県","千葉県","茨城県"]),family:rnd(["安定した家庭","教育熱心な家庭","一般的な家庭","経済的に厳しい家庭"]),talent:n(35,85),home:n(30,90),hp:n(40,90),mind:n(35,85),study:n(5,18),money:n(20,90),age:0,school:"",grade:"",attempt:0};$("title").classList.add("hidden");$("birth").classList.remove("hidden");$("cert").innerHTML='<h2>出生証明書</h2><p>氏名 <strong>'+p.name+'</strong></p><p>性別 <strong>'+p.gender+'</strong></p><p>出生地 <strong>'+p.pref+'</strong></p><p>家庭環境 <strong>'+p.family+'</strong></p><p>基礎能力 <strong>'+p.talent+'</strong></p><p>家庭資源 <strong>'+p.home+'</strong></p><p style="text-align:center;border:0;margin-top:18px">この先の人生は、あなたの選択で変わる。</p>'}
+function reveal(){$("birth").classList.add("hidden");$("game").classList.remove("hidden");add("0歳。"+p.pref+"で生まれた。");next()}
+function add(t){log.unshift(t);$("logs").innerHTML=log.slice(0,8).map(x=>'<div class="log">'+x+'</div>').join("")}
+function update(){$("player").textContent=p.name;$("age").textContent=p.age+"歳";$("phase").textContent=p.age<6?"幼少期":p.age<12?"小学校":p.age<15?"中学校":p.age<18?"高校受験・高校生活":p.age<22?"大学受験・大学生活":"その先";$("stats").innerHTML=[["学力",p.study],["才能",p.talent],["体力",p.hp],["精神力",p.mind],["家庭資源",p.home],["資金",p.money]].map(([k,v])=>'<div class="stat"><small>'+k+'</small><strong>'+v+'</strong><div class="bar"><i style="width:'+Math.max(0,Math.min(100,v))+'%"></i></div></div>').join("")}
+function next(){update();let e;
+if(p.age<6)e={t:"幼少期",d:"遊びや日々の経験を通して、少しずつ成長していく。",c:[["外でたくさん遊ぶ","体力と精神力が伸びる",()=>{p.hp+=8;p.mind+=3}],["本を読んでもらう","学力の土台をつくる",()=>{p.study+=6;p.talent+=2}],["習い事を始める","家庭資源を使って能力を伸ばす",()=>{p.home-=5;p.study+=4;p.mind+=5}]]};
+else if(p.age<12)e={t:"小学校生活",d:"勉強の習慣が少しずつ身についてくる。放課後の時間をどう使う？",c:[["毎日コツコツ勉強","学力が大きく伸びる",()=>{p.study+=10;p.mind-=2}],["友達と遊ぶ","体力・精神力が伸びる",()=>{p.hp+=6;p.mind+=7}],["塾に通い始める","費用はかかるが学力を伸ばせる",()=>{p.money-=8;p.study+=13}]]};
+else if(p.age<15)e={t:"中学校生活",d:"定期テスト、部活動、友人関係。高校受験を意識し始める時期だ。",c:[["部活と勉強を両立","バランスよく成長する",()=>{p.hp+=5;p.study+=6;p.mind+=4}],["受験勉強に集中","学力を優先する",()=>{p.study+=14;p.mind-=5}],["苦手科目を克服する","基礎を固める",()=>{p.study+=9;p.talent+=3}]]};
+else if(p.age===15)e={t:"高校受験",d:"模試の偏差値は"+Math.max(35,Math.min(75,Math.round(40+p.study*.42+(p.talent-50)*.15)))+"。どの進路に挑戦する？",c:[["安全校を受験","合格可能性を重視する",()=>exam(42)],["実力相応校を受験","努力の成果を試す",()=>exam(55)],["難関校に挑戦","高い目標に挑む",()=>exam(68)]]};
+else if(p.age<18)e={t:"高校生活",d:"高校での3年間。大学進学、専門分野、就職。将来の選択肢が広がる。",c:[["大学受験に向けて勉強","学力を伸ばす",()=>{p.study+=12;p.mind-=3}],["学校生活を充実させる","体力と精神力を整える",()=>{p.hp+=5;p.mind+=8}],["資格・探究活動に挑戦","経験値を積む",()=>{p.talent+=7;p.study+=4}]]};
+else if(p.age===18)e={t:"進路選択",d:"高校卒業。次のステージを選ぶ。",c:[["国公立大学を受験","総合力が問われる",()=>exam(72)],["私立大学を受験","得意科目を活かす",()=>exam(65)],["専門学校・就職へ","別の道で力を磨く",()=>{p.school="専門・就職";add("進学以外の道を選択した。")}]]};
+else if(p.age<22)e={t:"次のステージ",d:"選んだ進路で経験を積み、自分の未来をつくっていく。",c:[["学びを深める","専門性が高まる",()=>{p.talent+=8;p.study+=5}],["新しい挑戦をする","経験と精神力を得る",()=>{p.mind+=8;p.hp+=4}],["自分のペースを大切にする","心身を整える",()=>{p.hp+=8;p.mind+=8}]]};
+else e={t:"人生の節目",d:"受験だけが人生のすべてではない。ここまでの選択が、あなたの道を形づくった。",c:[["新しい目標に挑戦","学び続ける",()=>{p.talent+=5;p.study+=5}],["これまでの経験を活かす","自分の道を進む",()=>{p.mind+=5;p.money+=5}]]};
+$("eventTitle").textContent=e.t;$("eventText").textContent=e.d;$("choices").innerHTML="";e.c.forEach(([a,b,fn])=>{let bt=document.createElement("button");bt.className="choice";bt.innerHTML="<b>"+a+"</b><small>"+b+"</small>";bt.onclick=()=>{fn();p.age=p.age<6?p.age+2:p.age+1;clamp();add(p.age+"歳： "+a+"。");next()};$("choices").append(bt)})}
+function exam(target){let score=p.study*.65+p.talent*.2+p.mind*.08+n(-12,12);let pass=score>=target;if(pass){p.school=target>=68?"難関校・大学":target>=55?"進学校・大学":"志望校";add("受験に合格！ "+p.school+"への進路が決まった。");p.mind+=8}else{p.attempt++;add("不合格。悔しさを糧に、次の道を考える。");p.mind-=10;if(p.attempt===1){p.study+=6}else{p.school="別の進路";p.mind-=5}}}
+function clamp(){["study","talent","hp","mind","home","money"].forEach(k=>p[k]=Math.max(0,Math.min(100,p[k])))}
+function save(){localStorage.setItem("jukensen_game",JSON.stringify({p,stage,log}));add("セーブしました。")}
+</script></body></html>
