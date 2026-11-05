@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /.package-src/
+Disallow: /archive/
+
+Sitemap: https://knotspace.github.io/game/sitemap.xml
