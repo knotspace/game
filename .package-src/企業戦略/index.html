@@ -3331,11 +3331,11 @@ function recordLife(L){const A=loadAch();A.lives=(A.lives||0)+1;if(S.mode==="slo
 function achHTML(A){A=A||loadAch();const got=A.got||{};const n=ACHV.filter(a=>got[a[0]]).length;
   return`<details${n>1?" open":""}><summary><span class="label" style="color:var(--ink)">人生の実績　${n}／${ACHV.length}</span></summary><p class="muted" style="font-size:12px;margin:2px 0 8px">生まれた回数 ${A.lives||0}回・生まれた都道府県 ${Object.keys(A.prefs||{}).length}／47・クリアしたチャレンジ ${Object.keys(A.cleared||{}).length}／${CHALLENGES.length}</p><div class="achgrid">${ACHV.map(([id,name,desc])=>`<div class="ach ${got[id]?"on":""}" title="${esc(desc||name)}"><b>${got[id]?esc(name):"？？？"}</b>${got[id]?`<small>${esc(desc||"")}</small>`:`<small>${esc(name.slice(0,1)+"○".repeat(Math.min(7,name.length-1)))}</small>`}</div>`).join("")}</div></details>`}
 // ===== 計測（GoatCounter。未設定なら何もしない） =====
-const GC="https://1oku2380man.goatcounter.com";
+const GC="";
 function track(path,title){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path,title,event:true})}catch(e){}}
 function showPlays(){try{if(!window.goatcounter)return;const fmt=n=>n>=10000?(Math.floor(n/1000)/10).toFixed(1).replace(/\.0$/,"")+"万":n.toLocaleString();fetch(GC+"/counter/life-start.json").then(r=>r.ok?r.json():null).then(d=>{const l=d&&d.count?+String(d.count).replace(/[^\d]/g,""):0,el=$("#plays");if(!el||!l)return;el.hidden=false;el.innerHTML=`これまでに <b class="num">${fmt(l)}</b> 人がここで生まれました`}).catch(()=>{})}catch(e){}}
-const TIP_URL="https://buy.stripe.com/5kQbJ11vr5nbaRWf9DfEk00";// 応援（投げ銭）用 Stripe Payment Link
-const FEEDBACK_FORM="https://docs.google.com/forms/d/e/1FAIpQLSdtPM2QVNYgRauZELgml-Zwhtph6O69Ly9YW4ERHg84Re38Hg/viewform";// ご意見用Googleフォームの共有URL（入っていればこれを優先）
+const TIP_URL="";// 応援（投げ銭）用 Stripe Payment Link
+const FEEDBACK_FORM="";// ご意見用Googleフォームの共有URL（入っていればこれを優先）
 const REVIEW_API="";// みんなのレビュー（Apps ScriptのウェブアプリURL。未設定なら非表示）
 async function loadReviews(el){if(!REVIEW_API||!el)return;try{const r=await fetch(REVIEW_API,{cache:"no-store"});const d=await r.json();const rv=d.reviews||[];el.innerHTML=`<span class="label">みんなのレビュー（${d.total||0}件）</span>`+(rv.length?`<div class="mem" style="margin-top:6px">${rv.map(x=>`<div style="display:block"><p style="margin:0;font-size:14px">${esc(x.t)}</p><span class="muted" style="font-size:11px">${esc(x.n)}　${x.p?esc(x.p)+(x.ti?"「"+esc(x.ti)+"」":"")+(x.a!==""?x.a+"歳":"")+(x.c?"・"+esc(x.c):"")+"　":""}${esc(x.d)}</span></div>`).join("")}</div>`:`<p class="muted" style="font-size:13px">まだありません。最初のレビューを書いてください。</p>`)}catch(e){el.innerHTML=""}}
 async function postReview(body){const r=await fetch(REVIEW_API,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(body)});return r.json()}

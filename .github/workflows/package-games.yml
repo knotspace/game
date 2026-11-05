@@ -15,11 +15,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build separate ZIP
+      - name: Build separate ZIP with UTF-8 filenames
         run: |
           mkdir -p dist
-          cd .package-src
-          zip -qr ../dist/knotspace-games.zip README.md 受験戦争 企業戦略
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          root = Path(".package-src")
+          with ZipFile("dist/knotspace-games.zip", "w", ZIP_DEFLATED, compresslevel=9) as z:
+              for top in ("README.md", "受験戦争", "企業戦略"):
+                  p = root / top
+                  if p.is_file():
+                      z.write(p, p.relative_to(root).as_posix())
+                  else:
+                      for f in sorted(p.rglob("*")):
+                          if f.is_file():
+                              z.write(f, f.relative_to(root).as_posix())
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: knotspace-games-zip
