@@ -2,35 +2,57 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10131b">
-<meta name="description" content="KNOTSPACEが制作する無料ゲーム集。人生シミュレーション「青の分岐点」、受験シミュレーション、会社経営シミュレーションをブラウザでプレイできます。"><link rel="canonical" href="https://knotspace.github.io/game/"><meta property="og:type" content="website"><meta property="og:site_name" content="KNOTSPACE Games"><meta property="og:title" content="KNOTSPACE Games｜無料ブラウザゲーム"><meta property="og:description" content="人生・受験・会社経営をテーマにしたオリジナルシミュレーションゲーム。"><meta property="og:url" content="https://knotspace.github.io/game/"><meta name="twitter:card" content="summary">
-<title>KNOTSPACE Games｜無料ブラウザゲーム・シミュレーション</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050608">
+<meta name="description" content="KNOTSPACEのオリジナルブラウザゲーム。人生、受験、企業経営のシミュレーションを無料でプレイ。">
+<link rel="canonical" href="https://knotspace.github.io/game/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="KNOTSPACE GAMES">
+<meta property="og:title" content="KNOTSPACE GAMES — Play your story">
+<meta property="og:description" content="人生・受験・企業経営。選択で未来が変わる無料シミュレーション。">
+<meta property="og:url" content="https://knotspace.github.io/game/"><meta name="twitter:card" content="summary">
+<title>KNOTSPACE GAMES — Play your story</title>
 <style>
-:root{color-scheme:dark;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#10131b;color:#f5f6fa}
-*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:28px;background:radial-gradient(ellipse at 50% 0,#202a40 0,transparent 55%),#10131b}
-main{width:min(760px,100%)}h1{font-size:clamp(2rem,7vw,3.4rem);letter-spacing:.04em;margin:0 0 10px}p{color:#aeb8ca;line-height:1.8;margin:0 0 30px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-a{display:block;padding:25px;border:1px solid #354158;border-radius:20px;background:#1a2231;color:inherit;text-decoration:none;transition:transform .18s,border-color .18s}
-a:hover,a:focus-visible{transform:translateY(-3px);border-color:#8aa8df;outline:none}
-strong{display:block;font-size:1.35rem;margin-bottom:8px}small{color:#aeb8ca;font-size:.92rem}
-footer{margin-top:34px;color:#69758a;font-size:.8rem}
+:root{color-scheme:dark;--bg:#050608;--surface:#0d0f13;--surface2:#12151b;--line:#222731;--text:#f2f4f7;--muted:#9299a5;--accent:#b8d5c3;--accent2:#91a9d4;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Noto Sans JP",sans-serif}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;min-height:100svh;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}.shell{width:min(1080px,100%);margin:auto;padding:0 28px}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{font-size:13px;font-weight:850;letter-spacing:.19em}.brand i{font-style:normal;color:var(--accent)}
+.nav-right{display:flex;gap:22px;align-items:center;font-size:12px;color:var(--muted)}.nav-right a:hover{color:var(--text)}
+.hero{padding:94px 0 64px}.eyebrow{font-size:10px;letter-spacing:.25em;font-weight:800;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(42px,8vw,78px);line-height:1.03;letter-spacing:-.065em;margin:20px 0 18px;font-weight:850}
+.lead{max-width:560px;color:var(--muted);font-size:14px;line-height:2;margin:0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:0 0 18px}
+.section-head h2{font-size:16px;letter-spacing:.04em;margin:0}.count{font-size:11px;color:var(--muted);letter-spacing:.12em}
+.games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.game{min-height:285px;display:flex;flex-direction:column;padding:24px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(155deg,#11151c,#0b0d11 72%);transition:border-color .2s,transform .2s,background .2s;position:relative;overflow:hidden}
+.game:hover,.game:focus-visible{border-color:#657b70;transform:translateY(-4px);background:linear-gradient(155deg,#171e20,#0c0f12 72%);outline:none}
+.game:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #ffffff08;border-radius:50%;right:-74px;top:-72px;pointer-events:none}
+.game-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
+.num{font-size:10px;letter-spacing:.2em;color:#747c89}.symbol{width:38px;height:38px;border:1px solid #303944;border-radius:12px;display:grid;place-items:center;color:var(--accent);font-size:17px}
+.game h3{font-size:22px;letter-spacing:-.035em;margin:0 0 9px}.game p{font-size:12px;line-height:1.9;color:var(--muted);margin:0;max-width:260px}
+.game-bottom{margin-top:auto;padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+.kind{font-size:10px;color:#78818e;letter-spacing:.08em}.launch{font-size:12px;font-weight:750;color:var(--accent);display:flex;gap:8px;align-items:center}
+.note{margin:56px 0 0;padding:20px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:11px}
+.note a:hover{color:var(--text)}.footer{padding:18px 0 32px;color:#626a76;font-size:10px;letter-spacing:.08em;display:flex;justify-content:space-between}
+@media(max-width:760px){.shell{padding:0 19px}.hero{padding:70px 0 48px}.games{grid-template-columns:1fr}.game{min-height:220px;padding:21px}.game-top{margin-bottom:22px}.game-bottom{padding-top:24px}.note{margin-top:40px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"KNOTSPACE Games","url":"https://knotspace.github.io/game/","description":"KNOTSPACEが制作するブラウザ向けシミュレーションゲームのポータル。"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"KNOTSPACE GAMES","url":"https://knotspace.github.io/game/","description":"KNOTSPACEの無料ブラウザゲームポータル"}</script>
 </head>
 <body>
-<main>
-<h1>Games</h1>
-<p>ゲームプロジェクトを選択してください。</p>
-<section class="cards" aria-label="ゲーム一覧">
-<a href="./青の分岐点/"><strong>青の分岐点</strong><small>人生シミュレーション</small></a>
-<a href="./honke-game/"><strong>受験戦争</strong><small>受験シミュレーション</small></a>
-<a href="./business-sim/"><strong>企業戦略</strong><small>会社経営シミュレーション</small></a>
-</section>
-<footer>KNOTSPACE · Game Projects<a href="./release-notes.html" style="display:inline-block;margin:12px 0;font-size:12px;color:inherit;text-decoration:underline">リリースノート</a>
-</footer>
+<header class="shell nav"><a class="brand" href="./">KNOT<i>SPACE</i> <span style="color:#656d79">/ GAMES</span></a><nav class="nav-right"><a href="./release-notes.html">更新履歴</a><a href="https://knotspace.github.io/">KNOTSPACE ↗</a></nav></header>
+<main class="shell">
+<section class="hero"><div class="eyebrow">Independent browser games</div><h1>Play your<br>own story.</h1><p class="lead">選択ひとつで、未来は変わる。<br>人生・受験・企業経営をテーマにしたシミュレーションゲーム。</p></section>
+<section aria-labelledby="games-title"><div class="section-head"><h2 id="games-title">ゲームを選ぶ</h2><span class="count">01 — 03 / TITLES</span></div>
+<div class="games">
+<a class="game" href="./青の分岐点/" aria-label="青の分岐点をプレイ">
+<div class="game-top"><span class="num">01 / LIFE</span><span class="symbol">◇</span></div><h3>青の分岐点</h3><p>生まれた瞬間から人生が始まる。無数の選択を重ね、自分だけの人生を歩もう。</p><div class="game-bottom"><span class="kind">LIFE SIMULATION</span><span class="launch">PLAY <span aria-hidden="true">↗</span></span></div></a>
+<a class="game" href="./jukenwar/" aria-label="受験戦争をプレイ">
+<div class="game-top"><span class="num">02 / EXAM</span><span class="symbol">▤</span></div><h3>受験戦争</h3><p>学力、進路、日々の決断。受験を軸にしたシミュレーション。</p><div class="game-bottom"><span class="kind">EXAM SIMULATION</span><span class="launch">PLAY <span aria-hidden="true">↗</span></span></div></a>
+<a class="game" href="./business-sim/" aria-label="企業戦略をプレイ">
+<div class="game-top"><span class="num">03 / BUSINESS</span><span class="symbol">⌁</span></div><h3>企業戦略</h3><p>資金・人材・市場を見極め、経営判断で会社を成長させよう。</p><div class="game-bottom"><span class="kind">BUSINESS SIMULATION</span><span class="launch">PLAY <span aria-hidden="true">↗</span></span></div></a>
+</div></section>
+<div class="note"><span>すべて無料・ブラウザでプレイ</span><a href="./release-notes.html">リリースノートを見る ↗</a></div>
 </main>
-
-<footer class="knot-home-link" style="padding:18px 16px 24px;text-align:center;font-size:12px;opacity:.68"><a href="https://knotspace.github.io/" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px">← KNOT トップへ</a></footer>
-</body>
-</html>
+<footer class="shell footer"><span>© KNOTSPACE GAMES</span><span>BUILT FOR THE WEB</span></footer>
+</body></html>
