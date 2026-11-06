@@ -174,4 +174,18 @@
       }
     }catch(e){}
   };
+
+  // PWA: 既存ゲーム本体に手を入れず、この拡張スクリプトから登録する。
+  try{
+    document.title="青の分岐点";
+    const theme=document.querySelector('meta[name="theme-color"]');
+    if(theme)theme.setAttribute("content","#12161d");
+    const appIcon=document.querySelector('link[rel="apple-touch-icon"]');
+    if(appIcon)appIcon.setAttribute("href","icon.svg");
+    if("serviceWorker" in navigator && location.protocol==="https:"){
+      window.addEventListener("load",function(){
+        navigator.serviceWorker.register("./service-worker.js",{scope:"./"}).catch(function(){});
+      },{once:true});
+    }
+  }catch(e){}
 })();
