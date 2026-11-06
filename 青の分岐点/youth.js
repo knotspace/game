@@ -141,6 +141,37 @@
         el.appendChild(span);
       }
       el.querySelector("[data-youth-stat] b").textContent=Math.round(Y.score||0);
+      // 思い出アルバムは既存の「人生の記録」カード内に折りたたんで追加する。
+      const logBox=document.querySelector(".logsheet");
+      if(logBox){
+        let album=document.querySelector("#youthAlbum");
+        if(Y.memories.length){
+          if(!album){
+            album=document.createElement("details");
+            album.id="youthAlbum";
+            album.style.cssText="margin-top:12px;border-top:1px solid var(--rule);padding-top:10px";
+            const summary=document.createElement("summary");
+            summary.style.cssText="cursor:pointer;font-weight:700";
+            album.appendChild(summary);
+            const list=document.createElement("div");
+            list.id="youthAlbumList";
+            list.style.cssText="display:grid;gap:7px;margin-top:10px";
+            album.appendChild(list);
+            const log=document.querySelector("#log");
+            if(log)log.insertAdjacentElement("afterend",album);
+            else logBox.appendChild(album);
+          }
+          album.querySelector("summary").textContent="青春の思い出アルバム（"+Y.memories.length+"）";
+          const list=album.querySelector("#youthAlbumList");
+          list.replaceChildren();
+          Y.memories.slice().reverse().forEach(m=>{
+            const item=document.createElement("div");
+            item.style.cssText="font-size:13px;padding:6px 0;border-bottom:1px dashed var(--rule)";
+            item.textContent=m.age+"歳　"+m.text;
+            list.appendChild(item);
+          });
+        }else if(album)album.remove();
+      }
     }catch(e){}
   };
 })();
