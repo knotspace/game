@@ -1,5 +1,5 @@
 /* 青の分岐点 PWA service worker */
-const CACHE_NAME="ao-no-bunkiten-shell-v1";
+const CACHE_NAME="ao-no-bunkiten-shell-v2";
 const SHELL=["./index.html","./manifest.json","./icon.svg","./icon-192.png","./icon-512.png","./youth.js","./i18n/runtime.js"];
 self.addEventListener("install",event=>{
  event.waitUntil((async()=>{
