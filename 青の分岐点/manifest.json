@@ -2,7 +2,7 @@
   "id": "./",
   "name": "青の分岐点",
   "short_name": "青の分岐点",
-  "description": "生まれる場所も、出会う人も、選ぶ道も。あなただけの人生を歩むシミュレーション。",
+  "description": "選択によって人生が分岐する、日本の人生シミュレーション。",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -10,29 +10,16 @@
     "standalone",
     "minimal-ui"
   ],
-  "background_color": "#eef1f4",
-  "theme_color": "#24407a",
+  "orientation": "portrait",
+  "background_color": "#12161d",
+  "theme_color": "#12161d",
   "lang": "ja",
-  "categories": [
-    "games",
-    "entertainment"
-  ],
   "icons": [
     {
       "src": "icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
-    },
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
     }
   ]
 }
