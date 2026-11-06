@@ -3,15 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="日本の人口1億2380万人のひとりとして、47都道府県のどこかに生まれ、実在の高校・大学・職業・年収の統計で一生を生きる人生シミュレーション。">
-<meta property="og:title" content="1億2380万分の1 ― 日本で生まれ、一度きりの人生を生きる">
-<meta property="og:description" content="どこに、誰の子として生まれるかは選べません。実際の統計で決まる、日本版人生シミュレーション。">
+<meta name="description" content="生まれる場所も、出会う人も、選ぶ道も。あなただけの人生を歩む「青の分岐点」。">
+<meta property="og:title" content="青の分岐点">
+<meta property="og:description" content="生まれる場所も、出会う人も、選ぶ道も。あなただけの人生を歩む。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rs-developing26.github.io/1oku2380man/">
 <meta property="og:image" content="https://rs-developing26.github.io/1oku2380man/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://rs-developing26.github.io/1oku2380man/og.png">
 <meta name="theme-color" content="#24407a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="青の分岐点">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -22,7 +26,7 @@
 .decmini{display:none;width:100%;padding:10px 12px;border:1px solid var(--shu,#c8372d);background:var(--paper,#fff);color:var(--shu,#c8372d);border-radius:8px;font-weight:700;text-align:left;cursor:pointer}#dec.decmin .decmini{display:block}#dec.decmin .decision{display:none}.decclose{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--rule,#cfd6e0);background:transparent;color:var(--sub,#5b6577);cursor:pointer}
 </style>
 <script src="i18n/runtime.js"></script>
-<title>1億2380万分の1</title>
+<title>青の分岐点</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -3846,5 +3850,6 @@ function sourcesHTML(){return`<section class="sheet src">
 home();
 </script>
 <script src="youth.js"></script>
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch(() => {})); }</script>
 </body>
 </html>
