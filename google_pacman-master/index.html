@@ -9,32 +9,22 @@
   <style>
     *{box-sizing:border-box}
     html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#000}
-    body{font-family:monospace;display:flex;align-items:center;justify-content:center}
-    center{display:block;position:relative;width:574px;height:250px;transform-origin:center center}
-    td{line-height:.8em}
-    form{margin:12px 0 0}
-    #wrapper{width:574px;height:206px;padding:10px;background:#000;border-radius:8px}
-    #logo{width:554px;height:186px;background:black url(src/pacman10-hp.gif) 0 0 no-repeat;position:relative;margin:0}
-    #footer{display:none}
-    .lsb{background:#171717;color:#ffdf00;border:1px solid #555;border-radius:5px;font: bold 16px Arial,sans-serif;cursor:pointer;height:38px;padding:0 24px}
-    .lsb:hover{background:#292929}
-    .lsb:active{background:#444}
-    input{font-family:inherit;-moz-box-sizing:content-box}
-    a{color:#11c;text-decoration:none}
-    a:hover,a:active{text-decoration:underline}
-    a:visited{color:#551a8b}
-    #logo{width:554px;height:186px;background:black url(src/pacman10-hp.gif) 0 0 no-repeat;position:relative;margin-bottom:9px}
+    body{font-family:Arial,sans-serif;color:#fff}
+    center{position:fixed;inset:0;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}
+    #wrapper{width:554px;height:186px;padding:0;margin:0;background:#000;position:relative;transform-origin:center center}
+    #logo{width:554px;height:186px;margin:0;position:relative;background:#000 url(src/pacman10-hp.gif) 0 0 no-repeat}
     #logo-l{width:200px;height:2px;left:177px;top:157px;background:#990;position:absolute;display:none;overflow:hidden}
     #logo-b{position:absolute;left:0;background:#ff0;height:8px;width:0}
-    .lsb:active{background:-webkit-gradient(linear,left top,left bottom,from(#ccc),to(#ddd))}
-    .ds{display:-moz-inline-box}
-    .ds{border-bottom:solid 1px #e7e7e7;border-right:solid 1px #e7e7e7;display:inline-block;margin:3px 0 4px;margin-left:4px;margin-right:3px:height:32px}
-    .lsbb{background:#eee;border:solid 1px;border-color:#ccc #999 #999 #ccc;height:30px;display:block}
-    .lsb:focus{outline:2px solid #ffdf00;outline-offset:2px}
-    #footer ul{list-style-type:none;padding:0}
-    #footer a{display:inline-block;color:#444;font-size:10pt;font-family:monospace;padding:5px}
-    #footer a:hover{color:#666;text-decoration:none;background:#333}
-    
+    #pcm-c{touch-action:manipulation}
+    form{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);margin:0;z-index:1000}
+    .ds,.lsbb{display:block;border:0;background:transparent}
+    .lsb{height:44px;padding:0 32px;border:1px solid #665500;border-radius:8px;background:#171717;color:#ffdf00;font:bold 16px Arial,sans-serif;cursor:pointer}
+    .lsb:hover{background:#292929}
+    .lsb:active{background:#444}
+    .lsb:focus-visible{outline:2px solid #ffdf00;outline-offset:3px}
+    #footer{display:none}
+    #dlink{display:none}
+    @media(max-height:420px){form{bottom:8px}.lsb{height:34px}}
   </style>
 </head>
 <body>
@@ -120,14 +110,16 @@
   <script>
     google.pml && google.pml();
     (function(){
-      var stage = document.querySelector("center");
+      var wrapper = document.getElementById("wrapper");
       function fit(){
-        var scale = Math.min((window.innerWidth - 24) / 574, (window.innerHeight - 24) / 250);
-        stage.style.transform = "scale(" + Math.max(0.5, scale) + ")";
+        /* The original game logic uses a 554 x 186 playfield.
+           Scale that actual playfield to the largest size that fits the viewport. */
+        var availableHeight = Math.max(120, window.innerHeight - 104);
+        var scale = Math.min((window.innerWidth - 24) / 554, availableHeight / 186);
+        wrapper.style.transform = "scale(" + Math.max(0.35, scale) + ")";
       }
-      window.addEventListener("resize", fit);
+      window.addEventListener("resize", fit, {passive:true});
       fit();
-    })();
-  </script>
+    })();  </script>
   </center>
 </html>
